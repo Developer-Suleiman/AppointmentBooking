@@ -1,0 +1,489 @@
+/* Premium dark landing page theme — scoped so it never leaks into the light-themed app pages. */
+
+.landing-page {
+  --lp-black: #121212;
+  --lp-black-soft: #1a1a1a;
+  --lp-offwhite: #f8f9fa;
+  --lp-gold: #d4af37;
+  --lp-gold-soft: rgba(212, 175, 55, 0.14);
+
+  background: var(--lp-black);
+  color: var(--lp-offwhite);
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.landing-page :is(html, body) {
+  scroll-behavior: smooth;
+}
+
+.text-gold {
+  color: var(--lp-gold) !important;
+}
+
+/* Custom scrollbar for the dark theme, scoped to when the landing page is on screen. */
+html:has(.landing-page) {
+  scrollbar-color: var(--lp-gold) var(--lp-black);
+}
+
+html:has(.landing-page)::-webkit-scrollbar {
+  width: 10px;
+}
+
+html:has(.landing-page)::-webkit-scrollbar-track {
+  background: var(--lp-black);
+}
+
+html:has(.landing-page)::-webkit-scrollbar-thumb {
+  background: var(--lp-gold);
+  border-radius: 999px;
+}
+
+/* Navbar */
+.landing-navbar {
+  background: rgba(18, 18, 18, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  transition: background 0.3s ease;
+}
+
+.landing-brand {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 1.35rem;
+  color: var(--lp-offwhite) !important;
+}
+
+.landing-navbar .nav-link {
+  color: rgba(248, 249, 250, 0.85);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.landing-navbar .nav-link:hover,
+.landing-navbar .nav-link:focus-visible {
+  color: var(--lp-gold);
+}
+
+.nav-signout-btn {
+  text-decoration: none;
+}
+
+.btn-gold {
+  background: var(--lp-gold);
+  border: 1px solid var(--lp-gold);
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-gold:hover,
+.btn-gold:focus-visible {
+  background: #e6c34f;
+  border-color: #e6c34f;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.35);
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.16), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.08), transparent 40%),
+    linear-gradient(180deg, #0d0d0d 0%, #161616 55%, #0d0d0d 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 8px);
+  pointer-events: none;
+}
+
+.eyebrow-gold {
+  color: var(--lp-gold);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 22px;
+}
+
+.hero-lead {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(248, 249, 250, 0.78);
+  max-width: 56ch;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.hero-actions .btn-outline-light {
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-actions .btn-outline-light:hover,
+.hero-actions .btn-outline-light:focus-visible {
+  background: rgba(248, 249, 250, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Sections */
+.landing-section {
+  padding: 96px 0;
+}
+
+.landing-section-alt {
+  background: var(--lp-black-soft);
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Services grid */
+.service-card-landing {
+  position: relative;
+  padding: 32px 26px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-landing:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.service-card-landing .duration-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--lp-gold-soft);
+  color: var(--lp-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.service-card-landing h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.service-card-landing p {
+  color: rgba(248, 249, 250, 0.72);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.service-card-landing .price-tag {
+  margin-top: 18px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--lp-gold);
+}
+
+/* Barbers */
+.barber-card {
+  padding: 32px 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.barber-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.barber-avatar {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--lp-gold), #f3d675);
+  transition: transform 0.3s ease;
+}
+
+.barber-card:hover .barber-avatar {
+  transform: scale(1.08);
+}
+
+.barber-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.barber-role {
+  color: var(--lp-gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.barber-specialty {
+  color: rgba(248, 249, 250, 0.7);
+  margin-bottom: 18px;
+}
+
+.barber-socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.barber-socials a {
+  color: rgba(248, 249, 250, 0.8);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.barber-socials a:hover,
+.barber-socials a:focus-visible {
+  background: var(--lp-gold);
+  color: #1a1a1a;
+}
+
+/* Booking banner */
+.booking-banner {
+  padding: 80px 0;
+  background: linear-gradient(120deg, #1a1a1a, #0d0d0d);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.booking-banner-copy {
+  color: rgba(248, 249, 250, 0.75);
+  line-height: 1.6;
+}
+
+.quick-booking-form .form-label {
+  color: rgba(248, 249, 250, 0.85);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.quick-booking-form .form-select,
+.quick-booking-form .form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--lp-offwhite);
+}
+
+.quick-booking-form .form-select:focus,
+.quick-booking-form .form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--lp-gold);
+  color: var(--lp-offwhite);
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.2);
+}
+
+.quick-booking-form .form-select option {
+  color: #1a1a1a;
+}
+
+/* Testimonials */
+.testimonial-carousel {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  max-width: 620px;
+  text-align: center;
+  padding: 12px 12px 40px;
+}
+
+.star-rating {
+  color: var(--lp-gold);
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.testimonial-quote {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(248, 249, 250, 0.9);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.testimonial-name {
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.testimonial-context {
+  color: rgba(248, 249, 250, 0.6);
+  font-size: 0.9rem;
+}
+
+.testimonial-carousel .carousel-control-prev,
+.testimonial-carousel .carousel-control-next {
+  width: 44px;
+  height: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.16);
+  opacity: 1;
+}
+
+.testimonial-carousel .carousel-control-prev {
+  left: -20px;
+}
+
+.testimonial-carousel .carousel-control-next {
+  right: -20px;
+}
+
+/* Footer */
+.landing-footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 64px 0 32px;
+}
+
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  color: rgba(248, 249, 250, 0.68);
+  line-height: 1.7;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lp-gold);
+  margin-bottom: 18px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  color: rgba(248, 249, 250, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-link {
+  color: var(--lp-gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.footer-socials a {
+  color: rgba(248, 249, 250, 0.8);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  background: var(--lp-gold);
+  color: #1a1a1a;
+}
+
+.footer-bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(248, 249, 250, 0.5);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  .landing-navbar .navbar-nav {
+    padding-top: 16px;
+    gap: 8px;
+  }
+
+  .testimonial-carousel .carousel-control-prev,
+  .testimonial-carousel .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .landing-section {
+    padding: 64px 0;
+  }
+
+  .hero-section {
+    padding: 120px 0 56px;
+  }
+}
