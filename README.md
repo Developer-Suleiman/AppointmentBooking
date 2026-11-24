@@ -1,4 +1,6 @@
-# React + Vite
+# AppointmentBooking
+
+A barbershop appointment app for booking services, managing availability, and keeping track of appointments.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,7 +19,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Appointment email setup
 
-For safe local testing, `MAIL_MODE=development` logs email contents and verification links in the server console without sending real messages. For real delivery, remove that mode or set another value and add these SMTP settings to `server/.env` without committing real passwords:
+For local development, `MAIL_MODE=development` logs email contents in the server console without sending real messages. For real delivery, configure SMTP in `server/.env`:
 
 ```env
 MAIL_MODE=smtp
@@ -29,10 +31,4 @@ MAIL_PASSWORD=your-smtp-password
 MAIL_FROM=FreshCut Barbers <your-mailbox@example.com>
 ```
 
-The booking workflow is:
-
-1. A booking is saved as `pending_verification`.
-2. The customer receives a verification link that expires after 30 minutes.
-3. The link changes the booking to `pending`.
-4. Admin confirmation sends a confirmation email.
-5. A background worker checks every 15 minutes and sends one reminder approximately 24 hours before confirmed appointments.
+Bookings are created as pending and require admin confirmation. Confirmed appointments can receive an email reminder approximately 24 hours before the appointment.
